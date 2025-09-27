@@ -1,0 +1,47 @@
+﻿
+@using ToDoListProject.Entity
+
+@model List<ToDo> 
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_toDoLayout.cshtml";
+}
+
+<h1>Yapılacaklar</h1>
+
+<table class="table table-bordered" >
+
+    <tr>
+
+        <th>#</th>
+        <th>Title</th>
+        <th>ıs completed ?</th>
+       <th>Operation</th>
+       <th>Update</th>
+    </tr>
+        @foreach(var item in Model)
+        {
+               <tr>
+                 
+                   <td>@item.Id</td>
+                   <td>@item.Title</td>
+            <td>@(item.IsCompleted ? "✔️" : "❌")</td>
+            <td>
+                <a href="/ToDo/Delete/@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                <a href="/ToDo/ToggleCompleted/@item.Id" class="btn btn-sm btn-warning mb-3">@(item.IsCompleted ? "Undo" : "Complete")  </a>
+                
+            </td>
+               
+         <td>
+             <a href="/ToDo/Edit/@item.Id" class="btn btn-success btn-sm mb-3">Update</a>
+         </td>
+               
+               </tr>
+
+
+        }
+
+
+</table>
+<a href="/ToDo/Create" class="btn btn-primary mb-3">+ Add New Duty</a>

@@ -1,0 +1,32 @@
+﻿@model ToDoListProject.Entity.ToDo
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_toDoLayout.cshtml";
+}
+
+<h1>Create Duty</h1>
+
+
+<form asp-action="Create" method="post">
+
+    <div class="form-group">
+
+        <label>Duty Title</label>
+
+        <input asp-for="Title" class="form-control" />
+
+    </div>
+
+    <div class="form-group">
+
+
+       <label>Is it completed?</label>
+
+        <input asp-for="IsCompleted" class="form-control" />
+
+    </div>
+
+
+<button type="submit" class="btn btn-success mt-3">+ Add Duty</button>
+
+</form>
